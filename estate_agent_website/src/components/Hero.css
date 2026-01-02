@@ -9,7 +9,7 @@
       rgba(0, 0, 0, 0.45),
       rgba(0, 0, 0, 0.45)
     ),
-    url('src/assets/images/landingPage.jpeg');
+    url('/src/assets/images/HeroSection.png');
   background-size: cover;
   background-position: center;
   padding: 24px;

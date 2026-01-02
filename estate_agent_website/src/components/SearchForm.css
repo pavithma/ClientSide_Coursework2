@@ -1,0 +1,64 @@
+.search-container {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin: -50px auto 40px; /* Overlap with Hero section for aesthetics [cite: 53] */
+  max-width: 1100px;
+  position: relative;
+  z-index: 10;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens [cite: 51] */
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #4b5563; /* Visual hierarchy  */
+}
+
+.custom-text-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-button-container {
+  grid-column: span 1;
+  justify-content: flex-end;
+}
+
+.search-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* RESPONSIVE LAYOUT: Smaller than iPad landscape width [cite: 52] */
+@media (max-width: 1024px) {
+  .search-grid {
+    grid-template-columns: repeat(2, 1fr); /* Change to 2 columns [cite: 51] */
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 600px) {
+  .search-grid {
+    grid-template-columns: 1fr; /* Stack elements [cite: 51] */
+  }
+}

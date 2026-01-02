@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <h1>PrimeEstate</h1>
+          <h1>Prime Estate</h1>
         </div>
 
         <nav className="nav">
@@ -22,3 +22,4 @@ function Header() {
 }
 
 export default Header
+
