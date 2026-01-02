@@ -8,9 +8,9 @@
 			"tenure":"Freehold",
 			"description":"Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
 			"location":"Petts Wood Road, Petts Wood, Orpington BR5",
-			"picture":"/src/assets/images/Property1/Property1.1.jpg",
+			"picture":"/src/assets/Images/Property1/Property1.1.jpg",
 			"url":"properties/prop1.html",
-            "added": { "month":"October", "day":12, "year":2022 }
+            "added": { "month":"October", "day":12, "year":2025 }
         },
 		{
             "id":"prop2",
@@ -20,9 +20,9 @@
 			"tenure":"Freehold",
 			"description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
 			"location":"Crofton Road Orpington BR6",
-			"picture":"/src/assets/images/Property2/Property2.1.jpg",
+			"picture":"/src/assets/Images/Property2/Property2.1.jpeg",
 			"url":"properties/prop2.html",
-            "added": { "month":"September", "day":14, "year":2022 }
+            "added": { "month":"September", "day":14, "year":2023 }
         },
     {
       "id": "prop3",
@@ -32,7 +32,7 @@
       "tenure": "Freehold",
       "description": "A spacious four bedroom detached family home located within a quiet and well-established residential area. The property offers generous living accommodation including a large reception room, a modern fitted kitchen with ample storage, and a dedicated dining space ideal for family living. Upstairs comprises four well-proportioned bedrooms, including a comfortable master bedroom. The private rear garden provides an excellent outdoor space, while the property also benefits from off-street parking and close proximity to reputable schools and transport links.",
       "location": "Green Lane, Bromley BR1",
-			"picture":"/src/assets/images/Property1/Property1.1.jpg",
+			"picture":"/src/assets/Images/Property3/Property3.1.jpg",
       "url": "properties/prop3.html",
       "added": { "month": "August", "day": 5, "year": 2022 }
         },
@@ -44,9 +44,9 @@
       "tenure": "Leasehold",
       "description": "A modern and well-maintained two bedroom flat set within a popular residential development. The property features a bright and spacious open-plan living and dining area, complemented by a contemporary fitted kitchen with integrated appliances. Both bedrooms are well proportioned, with the master bedroom benefiting from built-in storage. Additional features include a stylish family bathroom, secure entry system, and allocated parking. Ideally located close to local amenities and excellent transport links, this property is perfect for professionals, first-time buyers, or investors.",
       "location": "College Road, Bromley BR2",
-			"picture":"/src/assets/images/Property1/Property1.1.jpg",
+			"picture":"/src/assets/Images/Property4/Property4.1.jpeg",
       "url": "properties/prop4.html",
-      "added": { "month": "July", "day": 18, "year": 2022 }
+      "added": { "month": "July", "day": 18, "year": 2023 }
         },
     {
       "id": "prop5",
@@ -56,9 +56,9 @@
       "tenure": "Freehold",
       "description": "An impressive five bedroom luxury family residence offering expansive living space finished to a high specification throughout. The ground floor features multiple reception rooms, a premium fitted kitchen, and direct access to a beautifully landscaped rear garden, ideal for entertaining. The upper floors comprise five generously sized bedrooms, including a master suite with en-suite facilities. Additional benefits include a double garage, ample storage, and a highly desirable residential location.",
       "location": "Oak Drive, Beckenham BR3",
-			"picture":"/src/assets/images/Property1/Property1.1.jpg",
+			"picture":"/src/assets/Images/Property5/Property5.1.jpeg",
       "url": "properties/prop5.html",
-      "added": { "month": "June", "day": 30, "year": 2022 }
+      "added": { "month": "June", "day": 30, "year": 2021 }
         },
     {
       "id": "prop6",
@@ -68,9 +68,9 @@
       "tenure": "Leasehold",
       "description": "A bright and well-proportioned two bedroom flat ideally positioned close to local amenities and excellent transport connections. The property features a spacious living and dining area, a modern fitted kitchen, and two comfortable bedrooms. Residents also benefit from access to well-maintained communal gardens and secure entry. This property is well suited to first-time buyers, professionals, or investors seeking convenient city living.",
       "location": "River Road, Greenwich SE10",
-			"picture":"/src/assets/images/Property1/Property1.1.jpg",
+			"picture":"/src/assets/Images/Property6/Property6.1.jpeg",
       "url": "properties/prop6.html",
-      "added": { "month": "May", "day": 12, "year": 2022 }
+      "added": { "month": "May", "day": 12, "year": 2024 }
         },
     {
       "id": "prop7",
@@ -80,7 +80,7 @@
       "tenure": "Freehold",
       "description": "A well-presented four bedroom semi-detached family home situated in a sought-after residential location. The property offers generous living space including a spacious reception room, a modern fitted kitchen with dining area, and direct access to a well-maintained rear garden. The first floor comprises four comfortable bedrooms and a contemporary family bathroom. Further benefits include off-street parking, double glazing, gas central heating, and close proximity to excellent schools, local amenities, and transport links, making this an ideal family home.",
       "location": "Meadow Close, Chislehurst BR7",
-			"picture":"/src/assets/images/Property1/Property1.1.jpg",
+			"picture":"/src/assets/Images/Property7/Property7.1.jpeg",
       "url": "properties/prop7.html",
       "added": { "month": "April", "day": 8, "year": 2022 }
        },
@@ -92,9 +92,9 @@
       "tenure": "Leasehold",
       "description": "A stylish and spacious three bedroom apartment arranged over the upper floor of a modern development. The property features a bright open-plan living and dining area, a contemporary fitted kitchen with integrated appliances, and three well-proportioned bedrooms, including a master bedroom with en-suite facilities. Additional benefits include secure entry, allocated parking, and excellent transport links nearby. This property is ideal for professionals or families seeking modern city living.",
       "location": "Station Road, Lewisham SE13",
-			"picture":"/src/assets/images/Property1/Property1.1.jpg",
+			"picture":"/src/assets/Images/Property8/Property8.1.png",
       "url": "properties/prop8.html",
-      "added": { "month": "March", "day": 3, "year": 2022 }
+      "added": { "month": "March", "day": 3, "year": 2025 }
     }
   ]
 }

@@ -1,47 +1,44 @@
-import React from "react";
-import "./Footer.css";
+import React from 'react';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import './Footer.css';
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        
-        {/* Brand / About */}
-        <div className="footer-section">
-          <h2 className="footer-logo">Prime Estate</h2>
-          <p>
-            Helping you find the perfect property with trust, transparency,
-            and ease.
-          </p>
+        {/* Brand Section */}
+        <div className="footer-column footer-brand">
+          <div className="logo">Prime<span>Estate</span></div>
+          <p>Helping you find the perfect property with trust, transparency, and ease.</p>
         </div>
 
-        {/* Quick Links */}
-        <div className="footer-section">
+        {/* Quick Links Section - Mirrored from Header */}
+        <div className="footer-column">
           <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Buy</a></li>
-            <li><a href="#">Rent</a></li>
-            <li><a href="#">Agents</a></li>
-            <li><a href="#">Contact</a></li>
+          <ul className="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/properties">Properties</a></li>
+            <li><a href="/about">About</a></li>
           </ul>
         </div>
 
-        {/* Contact */}
-        <div className="footer-section">
-          <h3>Contact</h3>
-          <p>Email: info@primeestate.com</p>
-          <p>Phone: +94 74 291 2929</p>
-          <p>Location: Colombo, Sri Lanka</p>
+        {/* Contact Details Section */}
+        <div className="footer-column">
+          <h3>Contact Us</h3>
+          <div className="footer-contact">
+            <p>Email<span>info@primeestate.com</span></p>
+            <p>Phone<span>+94 74 291 2929</span></p>
+            <p>Location<span>Colombo, Sri Lanka</span></p>
+          </div>
         </div>
-
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} PrimeEstate. All rights reserved.</p>
+        <p>&copy; 2026 PrimeEstate. All rights reserved.</p>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
