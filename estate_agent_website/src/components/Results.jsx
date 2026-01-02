@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Results.css";
 import propertiesData from "../assets/properties(1).json";
 
@@ -36,9 +37,9 @@ function Results() {
                 <span className="property-tenure">{property.tenure}</span>
               </div>
 
-              <a href={property.url} className="view-btn">
+              <Link to={`/property/${property.id}`} className="view-btn">
                 View Details
-              </a>
+              </Link>
             </div>
           </div>
         ))}
