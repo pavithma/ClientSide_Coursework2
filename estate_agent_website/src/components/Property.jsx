@@ -48,7 +48,7 @@ const Property = () => {
       </section>
 
       {/* 2. Content Section */}
-      <div className="content-layout">
+      <div className="content-layout single-column">
         <div className="left-column">
           <div className="header-info">
             <h1>{property.bedrooms} Bedroom {property.type}</h1>
@@ -74,16 +74,29 @@ const Property = () => {
                 <p className="long-description" dangerouslySetInnerHTML={{ __html: property.description }}></p>
               </>
             )}
+
+            {activeTab === 'floorplan' && (
+              <div className="floorplan-section">
+                <img
+                  src={property.floorplan || property.images[0]}
+                  alt="Floor Plan"
+                  className="floorplan-image"
+                />
+              </div>
+            )}
+
+            {activeTab === 'map' && (
+              <div className="map-section">
+                <iframe
+                  title="Property Location"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(property.location)}&output=embed`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            )}
           </div>
         </div>
-
-        <aside className="contact-sidebar">
-          <div className="agent-card">
-            <h3>Interested?</h3>
-            <button className="primary-btn">Request Viewing</button>
-            <button className="secondary-btn">Email Agent</button>
-          </div>
-        </aside>
       </div>
 
       {/* 3. Fullscreen Photo Modal */}

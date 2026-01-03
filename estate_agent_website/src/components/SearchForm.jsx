@@ -1,33 +1,113 @@
-import React from 'react';
-import './SearchForm.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./SearchForm.css";
 
 const SearchForm = () => {
+  const navigate = useNavigate();
+
+  const [type, setType] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [minBedrooms, setMinBedrooms] = useState("");
+  const [maxBedrooms, setMaxBedrooms] = useState("");
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+  const [postcode, setPostcode] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const params = new URLSearchParams();
+
+    if (type) params.append("type", type);
+    if (minPrice) params.append("minPrice", minPrice);
+    if (maxPrice) params.append("maxPrice", maxPrice);
+    if (minBedrooms) params.append("minBedrooms", minBedrooms);
+    if (maxBedrooms) params.append("maxBedrooms", maxBedrooms);
+    if (dateFrom) params.append("dateFrom", dateFrom);
+    if (dateTo) params.append("dateTo", dateTo);
+    if (postcode) params.append("postcode", postcode);
+
+    navigate(`/properties?${params.toString()}`);
+  };
+
   return (
     <div className="search-container">
-      <form className="search-form">
+      <form className="search-form" onSubmit={handleSubmit}>
         <div className="input-group">
           <label>Property Type</label>
-          <select><option>Any</option><option>Apartment</option><option>House</option></select>
+          <select value={type} onChange={(e) => setType(e.target.value)}>
+            <option value="">Any</option>
+            <option value="House">House</option>
+            <option value="Flat">Flat</option>
+          </select>
         </div>
+
         <div className="input-group">
           <label>Price Range (£)</label>
           <div className="dual-inputs">
-            <input type="number" placeholder="Min" />
-            <input type="number" placeholder="Max" />
+            <input
+              type="number"
+              placeholder="Min"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder="Max"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+            />
           </div>
         </div>
+
         <div className="input-group">
           <label>Bedrooms</label>
           <div className="dual-inputs">
-            <input type="number" placeholder="Min" />
-            <input type="number" placeholder="Max" />
+            <input
+              type="number"
+              placeholder="Min"
+              value={minBedrooms}
+              onChange={(e) => setMinBedrooms(e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder="Max"
+              value={maxBedrooms}
+              onChange={(e) => setMaxBedrooms(e.target.value)}
+            />
           </div>
         </div>
+
+        <div className="input-group">
+          <label>Date Added</label>
+          <div className="dual-inputs">
+            <input
+              type="date"
+              value={dateFrom}
+              onChange={(e) => setDateFrom(e.target.value)}
+            />
+            <input
+              type="date"
+              value={dateTo}
+              onChange={(e) => setDateTo(e.target.value)}
+            />
+          </div>
+        </div>
+
         <div className="input-group">
           <label>Postcode Area</label>
-          <input type="text" placeholder="e.g. NW1" />
+          <input
+            type="text"
+            placeholder="e.g. BR1, NW1"
+            value={postcode}
+            onChange={(e) => setPostcode(e.target.value.toUpperCase())}
+          />
         </div>
-        <button type="submit" className="search-submit">Find Properties</button>
+
+        <button type="submit" className="search-submit">
+          Find Properties
+        </button>
       </form>
     </div>
   );
