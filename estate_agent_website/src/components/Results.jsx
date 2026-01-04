@@ -3,7 +3,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import "./Results.css";
 import propertiesData from "../assets/properties(1).json";
 
-function Results({ addToFavourites }) {
+function Results({ addToFavourites, favourites }) {
   const { properties } = propertiesData;
 
   const [searchParams] = useSearchParams();
@@ -63,14 +63,16 @@ function Results({ addToFavourites }) {
       ) : (
         <div className="properties-grid">
           {filteredProperties.map((property) => (
-            <div
-              key={property.id}
-              className="property-card"
-              draggable
-              onDragStart={() => {
-                localStorage.setItem("draggedProperty", JSON.stringify(property));
-              }}
-            >
+            <div key={property.id} className="property-card">
+              <button
+                className={`fav-btn-overlay ${
+                  favourites && favourites.some((p) => p.id === property.id) ? "active" : ""
+                }`}
+                onClick={() => addToFavourites(property)}
+                title="Add to favourites"
+              >
+                ♥
+              </button>
               <img src={property.picture} alt={property.type} className="property-image" />
 
               <div className="property-content">
@@ -88,13 +90,6 @@ function Results({ addToFavourites }) {
                   <span className="property-price">£{property.price.toLocaleString()}</span>
                   <span className="property-tenure">{property.tenure}</span>
                 </div>
-
-                <button
-                  className="fav-btn"
-                  onClick={() => addToFavourites(property)}
-                >
-                  ❤️ Add to Favourites
-                </button>
 
                 <Link to={`/property/${property.id}`} className="view-btn">
                   View Details

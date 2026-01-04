@@ -1,28 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Favourites.css";
 
-function Favourites({ favourites, removeFromFavourites, clearFavourites }) {
+function Favourites({ favourites, addToFavourites, removeFromFavourites, clearFavourites }) {
   const handleDrop = (e) => {
     e.preventDefault();
     const data = localStorage.getItem("draggedProperty");
     if (data) {
       const property = JSON.parse(data);
-      if (!favourites.find((p) => p.id === property.id)) {
-        favourites.push(property);
-      }
+      addToFavourites(property);
     }
   };
 
   return (
     <section id="favourites"
-      className="favourites-section"
+      className="favourites-section drop-zone"
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
     >
-      <h2>⭐ Favourites</h2>
+      <h2>Favourite Properties</h2>
 
       {favourites.length === 0 ? (
-        <p>Drag properties here or tap ❤️ to add</p>
+        <p>Drag the properties here or tap the heart to add it to the list.</p>
       ) : (
         <>
           <button className="clear-btn" onClick={clearFavourites}>
@@ -31,7 +30,8 @@ function Favourites({ favourites, removeFromFavourites, clearFavourites }) {
 
           <div className="favourites-grid">
             {favourites.map((property) => (
-              <div
+              <Link
+                to={`/property/${property.id}`}
                 key={property.id}
                 className="fav-card"
                 draggable
@@ -43,11 +43,14 @@ function Favourites({ favourites, removeFromFavourites, clearFavourites }) {
 
                 <button
                   className="delete-btn"
-                  onClick={() => removeFromFavourites(property.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    removeFromFavourites(property.id);
+                  }}
                 >
-                  ❌ Remove
+                  Remove
                 </button>
-              </div>
+              </Link>
             ))}
           </div>
         </>

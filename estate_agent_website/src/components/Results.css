@@ -118,3 +118,36 @@
     font-size: 2rem;
   }
 }
+
+/* ===== Favourite Heart Overlay ===== */
+.property-card {
+  position: relative;
+}
+
+.fav-btn-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 5;
+  color: #9ca3af;
+}
+
+.fav-btn-overlay:hover {
+  transform: scale(1.15);
+  background: #ffe4e6;
+}
+
+.fav-btn-overlay.active {
+  color: #ef4444;
+  background: #ffe4e6;
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35);
+}
