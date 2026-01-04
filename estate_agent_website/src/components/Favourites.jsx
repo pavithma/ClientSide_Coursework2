@@ -5,7 +5,7 @@ import "./Favourites.css";
 function Favourites({ favourites, addToFavourites, removeFromFavourites, clearFavourites }) {
   const handleDrop = (e) => {
     e.preventDefault();
-    const data = localStorage.getItem("draggedProperty");
+    const data = e.dataTransfer.getData("property");
     if (data) {
       const property = JSON.parse(data);
       addToFavourites(property);
@@ -13,7 +13,8 @@ function Favourites({ favourites, addToFavourites, removeFromFavourites, clearFa
   };
 
   return (
-    <section id="favourites"
+    <section
+      id="favourites"
       className="favourites-section drop-zone"
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}

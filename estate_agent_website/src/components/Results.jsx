@@ -2,6 +2,7 @@ import React from "react";
 import "./Results.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import propertiesData from "../assets/properties(1).json";
+import { Link } from "react-router-dom";
 
 function Results({ addToFavourites, removeFromFavourites, favourites, filters }) {
   const { properties } = propertiesData;
@@ -59,7 +60,14 @@ function Results({ addToFavourites, removeFromFavourites, favourites, filters })
           {filteredProperties.map((property) => {
             const isFav = favourites.some((p) => p.id === property.id);
             return (
-              <div key={property.id} className="property-card">
+              <div
+                key={property.id}
+                className="property-card"
+                draggable
+                onDragStart={(e) => {
+                  e.dataTransfer.setData("property", JSON.stringify(property));
+                }}
+              >
                 <button
                   className={`fav-btn-overlay ${isFav ? "active" : ""}`}
                   onClick={() => toggleFavourite(property)}
@@ -71,8 +79,6 @@ function Results({ addToFavourites, removeFromFavourites, favourites, filters })
                   src={property.picture}
                   alt={property.type}
                   className="property-image"
-                  draggable
-                  onDragStart={() => localStorage.setItem("draggedProperty", JSON.stringify(property))}
                 />
 
                 <div className="property-content">
@@ -83,6 +89,12 @@ function Results({ addToFavourites, removeFromFavourites, favourites, filters })
                     <span className="property-price">£{property.price.toLocaleString()}</span>
                     <span className="property-tenure">{property.tenure}</span>
                   </div>
+                  <Link
+                    to={`/property/${property.id}`}
+                    className="view-btn"
+                  >
+                    View Property
+                  </Link>
                 </div>
               </div>
             );

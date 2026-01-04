@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import propertyDataRaw from '../assets/properties(1).json';
 import './Property.css';
@@ -7,6 +8,17 @@ const Property = () => {
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState('property');
   const [mainImageIndex, setMainImageIndex] = useState(0);
+  const nextImage = () => {
+    setMainImageIndex((prev) =>
+      prev === property.images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setMainImageIndex((prev) =>
+      prev === 0 ? property.images.length - 1 : prev - 1
+    );
+  };
   const [property, setProperty] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -28,10 +40,21 @@ const Property = () => {
       {/* 1. Integrated Image Gallery */}
       <section className="gallery-container">
         <div className="main-stage">
-          <img src={property.images[mainImageIndex]} alt="Main Property" />
+          <button className="nav-arrow left" onClick={prevImage}>
+            <FaChevronLeft />
+          </button>
+
+          <img
+            src={property.images[mainImageIndex]}
+            alt="Main Property"
+          />
+
+          <button className="nav-arrow right" onClick={nextImage}>
+            <FaChevronRight />
+          </button>
         </div>
         <div className="side-grid">
-          {property.images.slice(0, 3).map((img, index) => (
+          {property.images.map((img, index) => (
             <div 
               key={index} 
               className={`side-thumb ${index === mainImageIndex ? 'active' : ''}`}
@@ -40,10 +63,6 @@ const Property = () => {
               <img src={img} alt="Thumbnail" />
             </div>
           ))}
-          <div className="more-btn-wrapper" onClick={() => setIsModalOpen(true)}>
-            <img src={property.images[4]} alt="More" className="blur-bg" />
-            <div className="overlay-text">+{property.images.length - 3} Photos</div>
-          </div>
         </div>
       </section>
 
@@ -71,7 +90,7 @@ const Property = () => {
                   <div className="stat"><span>Type</span><strong>{property.type}</strong></div>
                   <div className="stat"><span>Added</span><strong>{property.added.day} {property.added.month}</strong></div>
                 </div>
-                <p className="long-description" dangerouslySetInnerHTML={{ __html: property.description }}></p>
+                <p className="long-description">{property.description}</p>
               </>
             )}
 
