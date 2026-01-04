@@ -16,17 +16,18 @@ const Footer = () => {
         <div className="footer-column">
           <h3>Quick Links</h3>
           <ul className="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/search">Search</a></li>
-            <li><a href="/properties">Properties</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#search">Search</a></li>
+            <li><a href="/#favourites">Favourites</a></li>
+            <li><a href="/#properties">Properties</a></li>
+            <li><a href="/#about">About</a></li>
           </ul>
         </div>
 
         {/* Contact Details Section */}
         <div className="footer-column">
           <h3>Contact Us</h3>
-          <div className="footer-contact">
+          <div id="contact" className="footer-contact">
             <p>Email<span>info@primeestate.com</span></p>
             <p>Phone<span>+94 74 291 2929</span></p>
             <p>Location<span>Colombo, Sri Lanka</span></p>

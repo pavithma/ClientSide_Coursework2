@@ -11,6 +11,7 @@ import Favourites from "./components/Favourites";
 
 function App() {
   const [favourites, setFavourites] = useState([]);
+  const [searchFilters, setSearchFilters] = useState({}); // added to store search filters
 
   const addToFavourites = (property) => {
     setFavourites((prev) =>
@@ -31,19 +32,18 @@ function App() {
       <Header />
 
       <Routes>
-        {/* Home page with hero, search, results, about */}
         <Route
           path="/"
           element={
             <>
               <Hero />
-              <SearchForm />
+              <SearchForm setSearchFilters={setSearchFilters} />  {/* pass setter */}
               <Favourites
                 favourites={favourites}
                 removeFromFavourites={removeFromFavourites}
                 clearFavourites={clearFavourites}
               />
-              <Results addToFavourites={addToFavourites} />
+              <Results addToFavourites={addToFavourites} favourites={favourites} filters={searchFilters} />
               <About />
             </>
           }
@@ -51,31 +51,6 @@ function App() {
 
         {/* Property details page */}
         <Route path="/property/:id" element={<Property />} />
-
-        {/* Properties page for search results */}
-        <Route
-          path="/properties"
-          element={
-            <>
-              <SearchForm />
-              <Results addToFavourites={addToFavourites} />
-            </>
-          }
-        />
-
-        {/* About page */}
-        <Route path="/about" element={<About />} />
-
-        {/* Search page */}
-        <Route
-          path="/search"
-          element={
-            <>
-              <SearchForm />
-              <Results />
-            </>
-          }
-        />
       </Routes>
 
       <Footer />

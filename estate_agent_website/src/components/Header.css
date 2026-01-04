@@ -39,6 +39,7 @@
 .nav-links a:hover { color: #2563eb; }
 
 .btn-contact {
+  text-decoration: none;
   background: #2563eb;
   color: white;
   padding: 10px 24px;

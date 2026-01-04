@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./SearchForm.css";
 
-const SearchForm = () => {
-  const navigate = useNavigate();
-
+const SearchForm = ({ setSearchFilters }) => {  // receive setter
   const [type, setType] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -17,18 +14,18 @@ const SearchForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const params = new URLSearchParams();
+    const filters = {
+      type,
+      minPrice,
+      maxPrice,
+      minBedrooms,
+      maxBedrooms,
+      dateFrom,
+      dateTo,
+      postcode
+    };
 
-    if (type) params.append("type", type);
-    if (minPrice) params.append("minPrice", minPrice);
-    if (maxPrice) params.append("maxPrice", maxPrice);
-    if (minBedrooms) params.append("minBedrooms", minBedrooms);
-    if (maxBedrooms) params.append("maxBedrooms", maxBedrooms);
-    if (dateFrom) params.append("dateFrom", dateFrom);
-    if (dateTo) params.append("dateTo", dateTo);
-    if (postcode) params.append("postcode", postcode);
-
-    navigate(`/properties?${params.toString()}`);
+    setSearchFilters(filters); // update filters instead of navigating
   };
 
   return (
