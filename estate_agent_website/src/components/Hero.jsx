@@ -3,7 +3,7 @@ import './Hero.css';
 
 const Hero = () => {
   return (
-    <section className="hero">
+    <section id='home' className="hero">
       <div className="hero-overlay"></div>
       <div className="hero-content">
         <h1>Find Your Perfect Property</h1>
@@ -12,7 +12,9 @@ const Hero = () => {
           seamless property transitions. Your dream home is just a click away.
         </p>
         <div className="hero-actions">
-          <button className="btn-primary">Explore Properties</button>
+          <a href="/#properties" className="btn-primary">
+            Explore Properties
+          </a>
           <button className="btn-secondary">Contact an Agent</button>
         </div>
       </div>

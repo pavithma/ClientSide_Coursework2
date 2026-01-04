@@ -32,7 +32,7 @@ const SearchForm = () => {
   };
 
   return (
-    <div className="search-container">
+    <div id="search" className="search-container">
       <form className="search-form" onSubmit={handleSubmit}>
         <div className="input-group">
           <label>Property Type</label>
