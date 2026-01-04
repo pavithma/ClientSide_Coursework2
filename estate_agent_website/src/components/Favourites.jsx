@@ -39,8 +39,8 @@ function Favourites({ favourites, addToFavourites, removeFromFavourites, clearFa
                 onDragEnd={() => removeFromFavourites(property.id)}
               >
                 <img src={property.picture} alt={property.type} />
-                <h4>{property.type}</h4>
-                <p>£{property.price.toLocaleString()}</p>
+                <h4 className="property-type">{property.type} | {property.bedrooms} Bedrooms</h4>
+                <p className="property-price">£{property.price.toLocaleString()}</p>
 
                 <button
                   className="delete-btn"

@@ -40,13 +40,16 @@
   margin-bottom: 10px;
 }
 
-.fav-card h4 {
+.property-type {
+  text-decoration: none;
+  color: #000000; /* deep purple */
   margin: 8px 0 4px;
   font-size: 1.05rem;
   font-weight: 600;
 }
 
-.fav-card p {
+.property-price {
+  text-decoration: none;
   margin: 0;
   color: #555;
   font-size: 0.95rem;
@@ -141,3 +144,4 @@
   background: #ffe4e6;
   box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35);
 }
+

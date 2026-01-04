@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import propertyData from "../assets/properties(1).json";
 import "./SearchForm.css";
 
-const SearchForm = ({ setSearchFilters }) => {  // receive setter
+const SearchForm = ({ setSearchFilters }) => {
   const [type, setType] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -11,9 +12,23 @@ const SearchForm = ({ setSearchFilters }) => {  // receive setter
   const [dateTo, setDateTo] = useState("");
   const [postcode, setPostcode] = useState("");
 
+  const [priceOptions, setPriceOptions] = useState([]);
+
+  // Calculate price options dynamically
+  useEffect(() => {
+    const prices = propertyData.properties.map(p => p.price);
+    const min = Math.min(...prices);
+    const max = Math.max(...prices);
+
+    const options = [];
+    for (let p = Math.floor(min / 50000) * 50000; p <= max + 50000; p += 50000) {
+      options.push(p);
+    }
+    setPriceOptions(options);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const filters = {
       type,
       minPrice,
@@ -24,8 +39,7 @@ const SearchForm = ({ setSearchFilters }) => {  // receive setter
       dateTo,
       postcode
     };
-
-    setSearchFilters(filters); // update filters instead of navigating
+    setSearchFilters(filters);
   };
 
   return (
@@ -43,52 +57,50 @@ const SearchForm = ({ setSearchFilters }) => {  // receive setter
         <div className="input-group">
           <label>Price Range (£)</label>
           <div className="dual-inputs">
-            <input
-              type="number"
-              placeholder="Min"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-            />
-            <input
-              type="number"
-              placeholder="Max"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            />
+            <select value={minPrice} onChange={(e) => setMinPrice(e.target.value)}>
+              <option value="">Min</option>
+              {priceOptions.map((p) => (
+                <option key={p} value={p}>£{p.toLocaleString()}</option>
+              ))}
+            </select>
+
+            <select value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)}>
+              <option value="">Max</option>
+              {priceOptions.map((p) => (
+                <option key={p} value={p}>£{p.toLocaleString()}</option>
+              ))}
+            </select>
           </div>
         </div>
 
         <div className="input-group">
           <label>Bedrooms</label>
           <div className="dual-inputs">
-            <input
-              type="number"
-              placeholder="Min"
-              value={minBedrooms}
-              onChange={(e) => setMinBedrooms(e.target.value)}
-            />
-            <input
-              type="number"
-              placeholder="Max"
-              value={maxBedrooms}
-              onChange={(e) => setMaxBedrooms(e.target.value)}
-            />
+            <select value={minBedrooms} onChange={(e) => setMinBedrooms(e.target.value)}>
+              <option value="">Min</option>
+              <option value="1">1 Bed</option>
+              <option value="2">2 Beds</option>
+              <option value="3">3 Beds</option>
+              <option value="4">4 Beds</option>
+              <option value="5">5+ Beds</option>
+            </select>
+
+            <select value={maxBedrooms} onChange={(e) => setMaxBedrooms(e.target.value)}>
+              <option value="">Max</option>
+              <option value="1">1 Bed</option>
+              <option value="2">2 Beds</option>
+              <option value="3">3 Beds</option>
+              <option value="4">4 Beds</option>
+              <option value="5">5+ Beds</option>
+            </select>
           </div>
         </div>
 
         <div className="input-group">
           <label>Date Added</label>
           <div className="dual-inputs">
-            <input
-              type="date"
-              value={dateFrom}
-              onChange={(e) => setDateFrom(e.target.value)}
-            />
-            <input
-              type="date"
-              value={dateTo}
-              onChange={(e) => setDateTo(e.target.value)}
-            />
+            <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
+            <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
           </div>
         </div>
 

@@ -88,7 +88,7 @@ const Property = () => {
                   <div className="stat"><span>Bedrooms</span><strong>{property.bedrooms}</strong></div>
                   <div className="stat"><span>Tenure</span><strong>{property.tenure}</strong></div>
                   <div className="stat"><span>Type</span><strong>{property.type}</strong></div>
-                  <div className="stat"><span>Added</span><strong>{property.added.day} {property.added.month}</strong></div>
+                  <div className="stat"><span>Added</span><strong>{property.added.day} {property.added.month} {property.added.year}</strong></div>
                 </div>
                 <p className="long-description">{property.description}</p>
               </>

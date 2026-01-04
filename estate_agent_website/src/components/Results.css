@@ -92,11 +92,9 @@
 
 /* ===== Button ===== */
 .view-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  margin: 0.8rem auto 0 auto; /* top margin + auto left/right to center */
   max-width: 260px;
-  margin: 0 auto;
   text-align: center;
   background-color: #2563eb;
   color: #ffffff;
@@ -106,7 +104,8 @@
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  width: 100%;
+  width: calc(100% - 2rem); /* leaves some padding on smaller cards */
+  box-sizing: border-box;
 }
 
 .view-btn:hover {

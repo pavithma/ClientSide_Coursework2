@@ -1,19 +1,18 @@
 .search-container {
-  background: white;
-  padding: 30px;
+  background: #ffffff;
+  padding: 30px 25px;
   border-radius: 16px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
               0 10px 10px -5px rgba(0, 0, 0, 0.04);
   color: #1a1a1a;
-  margin-top: 20px;
+  margin: 20px auto 40px auto;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  transition: all 0.3s ease;
 }
 
 .search-form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   align-items: start;
 }
@@ -33,45 +32,64 @@
 
 .input-group input,
 .input-group select {
-  padding: 12px;
+  padding: 12px 14px;
   border: 1px solid #d1d5db;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   box-sizing: border-box;
   width: 100%;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
 .dual-inputs {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-.dual-inputs input {
+.dual-inputs input,
+.dual-inputs select {
   flex: 1;
-  min-width: 80px;
+  min-width: 90px;
 }
 
 .search-submit {
-  background: #2563eb;
-  color: white;
-  padding: 14px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
+  padding: 14px 28px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s;
-  grid-column: span 1;
+  transition: all 0.25s ease;
+  justify-self: center;
+  width: max-content;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
 }
 
 .search-submit:hover {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(29, 78, 216, 0.45);
+}
+
+.search-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.35);
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .search-form {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
 
@@ -82,5 +100,10 @@
 
   .dual-inputs {
     flex-direction: column;
+  }
+
+  .search-submit {
+    width: 100%;
+    text-align: center;
   }
 }
