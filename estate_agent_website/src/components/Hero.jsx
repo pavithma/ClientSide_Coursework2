@@ -15,8 +15,10 @@ const Hero = () => {
           <a href="/#properties" className="btn-primary">
             Explore Properties
           </a>
-          <button className="btn-secondary">Contact an Agent</button>
-        </div>
+          <a href="/#contact" className="btn-secondary">
+            Contact a Agent
+          </a>        
+          </div>
       </div>
     </section>
   );

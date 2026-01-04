@@ -40,6 +40,7 @@ function App() {
               <SearchForm setSearchFilters={setSearchFilters} />  {/* pass setter */}
               <Favourites
                 favourites={favourites}
+                addToFavourites={addToFavourites}
                 removeFromFavourites={removeFromFavourites}
                 clearFavourites={clearFavourites}
               />

@@ -11,6 +11,7 @@ const SearchForm = ({ setSearchFilters }) => {
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [postcodeOptions, setPostcodeOptions] = useState([]);
 
   const [priceOptions, setPriceOptions] = useState([]);
 
@@ -25,6 +26,22 @@ const SearchForm = ({ setSearchFilters }) => {
       options.push(p);
     }
     setPriceOptions(options);
+  }, []);
+
+  // Calculate unique postcode options dynamically
+  useEffect(() => {
+    // Extract postcode area from location, e.g., 'BR1' from 'Green Lane, Bromley BR1'
+    const postcodeAreas = propertyData.properties
+      .map((p) => {
+        // Find postcode area at the end of the location string
+        // Match uppercase letters/numbers at the end, e.g., BR1, SE10, BR2, etc.
+        const match = p.location.match(/([A-Z]{1,2}\d{1,2}[A-Z]?)$/i);
+        return match ? match[1].toUpperCase() : null;
+      })
+      .filter(Boolean);
+    // Get unique postcode areas
+    const uniqueAreas = Array.from(new Set(postcodeAreas));
+    setPostcodeOptions(uniqueAreas);
   }, []);
 
   const handleSubmit = (e) => {
@@ -106,12 +123,15 @@ const SearchForm = ({ setSearchFilters }) => {
 
         <div className="input-group">
           <label>Postcode Area</label>
-          <input
-            type="text"
-            placeholder="e.g. BR1, NW1"
+          <select
             value={postcode}
-            onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-          />
+            onChange={(e) => setPostcode(e.target.value)}
+          >
+            <option value="">Any</option>
+            {postcodeOptions.map((area) => (
+              <option key={area} value={area}>{area}</option>
+            ))}
+          </select>
         </div>
 
         <button type="submit" className="search-submit">

@@ -8,7 +8,10 @@ function Favourites({ favourites, addToFavourites, removeFromFavourites, clearFa
     const data = e.dataTransfer.getData("property");
     if (data) {
       const property = JSON.parse(data);
-      addToFavourites(property);
+      const isAlreadyFavourite = favourites.some(fav => fav.id === property.id);
+      if (!isAlreadyFavourite) {
+        addToFavourites(property);
+      }
     }
   };
 

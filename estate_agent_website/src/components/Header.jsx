@@ -14,9 +14,9 @@ const Header = () => {
           <a href="/#properties">Properties</a>
           <a href="/#about">About</a>
         </nav>
-          <Link to="/contact" className="btn-contact">
+          <a href="/#contact" className="btn-contact">
             Contact Us
-          </Link>
+          </a>
       </div>
     </header>
   );
