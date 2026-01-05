@@ -4,6 +4,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import propertiesData from "../assets/properties(1).json";
 import { Link } from "react-router-dom";
 
+// JSX automatically encodes content to prevent XSS attacks.
 function Results({ addToFavourites, removeFromFavourites, favourites, filters }) {
   const { properties } = propertiesData;
 
