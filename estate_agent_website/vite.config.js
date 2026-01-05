@@ -6,6 +6,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    setupFiles: './src/components/setupTests.js',
+    setupFiles: './src/setupTests.js',
   },
 })

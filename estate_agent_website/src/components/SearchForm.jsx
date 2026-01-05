@@ -17,6 +17,10 @@ const SearchForm = ({ setSearchFilters }) => {
 
   // Calculate price options dynamically
   useEffect(() => {
+    if (!propertyData || !propertyData.properties) {
+      setPriceOptions([]);
+      return;
+    }
     const prices = propertyData.properties.map(p => p.price);
     const min = Math.min(...prices);
     const max = Math.max(...prices);
@@ -30,6 +34,10 @@ const SearchForm = ({ setSearchFilters }) => {
 
   // Calculate unique postcode options dynamically
   useEffect(() => {
+    if (!propertyData || !propertyData.properties) {
+      setPostcodeOptions([]);
+      return;
+    }
     // Extract postcode area from location, e.g., 'BR1' from 'Green Lane, Bromley BR1'
     const postcodeAreas = propertyData.properties
       .map((p) => {
@@ -63,8 +71,8 @@ const SearchForm = ({ setSearchFilters }) => {
     <div id="search" className="search-container">
       <form className="search-form" onSubmit={handleSubmit}>
         <div className="input-group">
-          <label>Property Type</label>
-          <select value={type} onChange={(e) => setType(e.target.value)}>
+          <label htmlFor="property-type">Property Type</label>
+          <select id="property-type" value={type} onChange={(e) => setType(e.target.value)}>
             <option value="">Any</option>
             <option value="House">House</option>
             <option value="Flat">Flat</option>
@@ -74,16 +82,16 @@ const SearchForm = ({ setSearchFilters }) => {
         <div className="input-group">
           <label>Price Range (£)</label>
           <div className="dual-inputs">
-            <select value={minPrice} onChange={(e) => setMinPrice(e.target.value)}>
+            <select id="min-price" value={minPrice} onChange={(e) => setMinPrice(e.target.value)}>
               <option value="">Min</option>
-              {priceOptions.map((p) => (
+              {Array.isArray(priceOptions) && priceOptions.length > 0 && priceOptions.map((p) => (
                 <option key={p} value={p}>£{p.toLocaleString()}</option>
               ))}
             </select>
 
-            <select value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)}>
+            <select id="max-price" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)}>
               <option value="">Max</option>
-              {priceOptions.map((p) => (
+              {Array.isArray(priceOptions) && priceOptions.length > 0 && priceOptions.map((p) => (
                 <option key={p} value={p}>£{p.toLocaleString()}</option>
               ))}
             </select>
@@ -93,7 +101,7 @@ const SearchForm = ({ setSearchFilters }) => {
         <div className="input-group">
           <label>Bedrooms</label>
           <div className="dual-inputs">
-            <select value={minBedrooms} onChange={(e) => setMinBedrooms(e.target.value)}>
+            <select id="min-bedrooms" value={minBedrooms} onChange={(e) => setMinBedrooms(e.target.value)}>
               <option value="">Min</option>
               <option value="1">1 Bed</option>
               <option value="2">2 Beds</option>
@@ -102,7 +110,7 @@ const SearchForm = ({ setSearchFilters }) => {
               <option value="5">5+ Beds</option>
             </select>
 
-            <select value={maxBedrooms} onChange={(e) => setMaxBedrooms(e.target.value)}>
+            <select id="max-bedrooms" value={maxBedrooms} onChange={(e) => setMaxBedrooms(e.target.value)}>
               <option value="">Max</option>
               <option value="1">1 Bed</option>
               <option value="2">2 Beds</option>
@@ -116,19 +124,20 @@ const SearchForm = ({ setSearchFilters }) => {
         <div className="input-group">
           <label>Date Added</label>
           <div className="dual-inputs">
-            <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
-            <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
+            <input id="date-from" type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
+            <input id="date-to" type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
           </div>
         </div>
 
         <div className="input-group">
-          <label>Postcode Area</label>
+          <label htmlFor="postcode-area">Postcode Area</label>
           <select
+            id="postcode-area"
             value={postcode}
             onChange={(e) => setPostcode(e.target.value)}
           >
             <option value="">Any</option>
-            {postcodeOptions.map((area) => (
+            {Array.isArray(postcodeOptions) && postcodeOptions.length > 0 && postcodeOptions.map((area) => (
               <option key={area} value={area}>{area}</option>
             ))}
           </select>
