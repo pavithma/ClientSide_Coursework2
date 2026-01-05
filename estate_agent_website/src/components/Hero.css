@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('/src/assets/Images/HeroSection.png') no-repeat center center/cover;
+  background: url('/images/HeroSection.png') no-repeat center center/cover;
   padding-top: 80px; /* Offset for sticky header */
 }
 
