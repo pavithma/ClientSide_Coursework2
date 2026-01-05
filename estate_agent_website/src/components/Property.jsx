@@ -75,10 +75,28 @@ const Property = () => {
             <div className="price-tag">{formattedPrice}</div>
           </div>
 
-          <div className="tabs-nav">
-            <button className={activeTab === 'property' ? 'active' : ''} onClick={() => setActiveTab('property')}>Description</button>
-            <button className={activeTab === 'floorplan' ? 'active' : ''} onClick={() => setActiveTab('floorplan')}>Floor Plan</button>
-            <button className={activeTab === 'map' ? 'active' : ''} onClick={() => setActiveTab('map')}>Map</button>
+          <div className="tabs-nav" style={{ position: 'relative', zIndex: 2 }}>
+            <button
+              className={activeTab === 'property' ? 'active' : ''}
+              onClick={() => setActiveTab('property')}
+              style={{ zIndex: 2, position: 'relative', pointerEvents: 'auto' }}
+            >
+              Description
+            </button>
+            <button
+              className={activeTab === 'floorplan' ? 'active' : ''}
+              onClick={() => setActiveTab('floorplan')}
+              style={{ zIndex: 2, position: 'relative', pointerEvents: 'auto' }}
+            >
+              Floor Plan
+            </button>
+            <button
+              className={activeTab === 'map' ? 'active' : ''}
+              onClick={() => setActiveTab('map')}
+              style={{ zIndex: 2, position: 'relative', pointerEvents: 'auto' }}
+            >
+              Map
+            </button>
           </div>
 
           <div className="tab-panel">
@@ -105,12 +123,20 @@ const Property = () => {
             )}
 
             {activeTab === 'map' && (
-              <div className="map-section">
+              <div className="map-section" style={{ position: 'relative', zIndex: 1 }}>
                 <iframe
                   title="Property Location"
                   src={`https://www.google.com/maps?q=${encodeURIComponent(property.location)}&output=embed`}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  style={{
+                    border: 0,
+                    width: '100%',
+                    height: '350px',
+                    pointerEvents: 'auto',
+                    zIndex: 1,
+                  }}
+                  allowFullScreen
                 ></iframe>
               </div>
             )}

@@ -93,6 +93,7 @@ function Results({ addToFavourites, removeFromFavourites, favourites, filters })
                   <Link
                     to={`/property/${property.id}`}
                     className="view-btn"
+                    style={{ zIndex: 2, position: 'relative', pointerEvents: 'auto' }}
                   >
                     View Property
                   </Link>
